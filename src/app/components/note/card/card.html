@@ -1,0 +1,16 @@
+<div
+  class="card bg-[#f9f9f9] hover:bg-[#e5e5e5] card-border border-[#e5e5e5] w-96 shadow-sm cursor-pointer"
+>
+  <div class="card-body">
+    <h2 class="card-title flex justify-between">
+      <span>{{ data()?.title }}</span>
+      <span class="text-base">{{ formatDate(data()?.created_at) }}</span>
+    </h2>
+    <p>
+      {{ data()?.content }}
+    </p>
+    <div class="card-actions justify-end">
+      <button class="btn btn-secondary" (click)="deleteItem(data()!.id)">Delete</button>
+    </div>
+  </div>
+</div>

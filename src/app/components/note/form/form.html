@@ -1,0 +1,38 @@
+<dialog id="note_form_modal" class="modal">
+  <div class="modal-box">
+    <form method="dialog">
+      <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+    </form>
+
+    <h3 class="text-lg font-bold">Add New Note</h3>
+
+    <div class="py-4">
+      <form class="flex flex-col" method="dialog" [formGroup]="noteForm" (ngSubmit)="onSubmit()">
+        <fieldset class="fieldset">
+          <legend class="fieldset-legend">Title</legend>
+          <input
+            type="text"
+            class="input w-full placeholder:text-gray-400"
+            formControlName="title"
+            placeholder="ex: Day 1"
+          />
+          <p class="label">* Required</p>
+
+          <legend class="fieldset-legend">Content</legend>
+          <textarea
+            class="textarea h-24 w-full placeholder:text-gray-400"
+            formControlName="content"
+            placeholder="ex: Hari yang cerah.."
+          ></textarea>
+          <p class="label">* Required</p>
+        </fieldset>
+
+        <div class="modal-action">
+          <button type="submit" class="btn btn-primary" [disabled]="!noteForm.valid">Submit</button>
+
+          <button type="button" class="btn btn-secondary" (click)="closeModal()">Close</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</dialog>
